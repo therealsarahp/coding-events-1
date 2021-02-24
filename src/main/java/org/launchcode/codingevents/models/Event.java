@@ -22,16 +22,16 @@ public class Event {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String aDescription) {
+        this.description = aDescription;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String aName) {
+        this.name = aName;
     }
 
     public int getId() {
