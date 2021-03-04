@@ -25,6 +25,43 @@
         <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
     <div class="form-group">
+        <label>Location
+            <input th:field="${event.location}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.location}"></p>
+    </div>
+    <div class="form-group">
+        <label>Registration
+            <input
+                    type="radio"
+                    value="true"
+                    id="true"
+                    name="registration"
+                    class="form-control">
+            <label for="true">True</label><br>
+            <input
+                    type="radio"
+                    value="false"
+                    id="false"
+                    name="registration"
+                    class="form-control">
+            <label for="false">False</label><br>
+        </label>
+        <p class="error" th:errors="${event.registration}"></p>
+    </div>
+    <div class="form-group">
+        <label>Expected Attendance
+            <input th:field="${event.attendance}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.attendance}"></p>
+    </div>
+    <div class="form-group">
+        <label>Date
+            <input type="date" value="date" name="date" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.date}"></p>
+    </div>
+    <div class="form-group">
         <input type="submit" value="Create" class="btn btn-success">
     </div>
 </form>
