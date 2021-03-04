@@ -1,8 +1,8 @@
 package org.launchcode.codingevents.models;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -24,11 +24,31 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
-    public Event(String name, String description, String contactEmail) {
-        this();
+    @NotBlank(message= "Location is required")
+    private String location;
+
+    @AssertTrue(message= "EVents must require registration.")
+    private boolean registration;
+
+    @NotNull(message= "Attendance Information Required")
+    @Min(1)
+    private int attendance;
+
+    @Future(message= "Events require a future date.")
+    private Date date;
+
+    public Event(String name, String description, String contactEmail, String location,
+                 boolean registration, int attendance, Date date) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+        this.location = location;
+        this.registration = registration;
+        this.attendance = attendance;
+        this.date = date;
+
+        this.id=nextId;
+        nextId++;
     }
 
     public Event() {
@@ -58,6 +78,38 @@ public class Event {
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public boolean isRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(boolean registration) {
+        this.registration = registration;
+    }
+
+    public int getAttendance() {
+        return attendance;
+    }
+
+    public void setAttendance(int attendance) {
+        this.attendance = attendance;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getId() {
