@@ -2,12 +2,14 @@ package org.launchcode.codingevents.controllers;
 
 import org.launchcode.codingevents.data.EventData;
 import org.launchcode.codingevents.models.Event;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 /**
  * Created by Chris Bay
@@ -27,6 +29,9 @@ public class EventController {
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
+        model.addAttribute("registration", "registration");
+        model.addAttribute("date", "date");
+        @DateTimeFormat(pattern = "dd.MM.yyyy") Date date;
         return "events/create";
     }
 
